@@ -36,7 +36,7 @@ export class CalculatorComponent implements OnInit {
         return;
       }
       const PrevKey = this.input[this.input.length - 1];
-      if (PrevKey === '/' || PrevKey === '*' || PrevKey === '-' || PrevKey === '+')  {
+      if (PrevKey === '/' || PrevKey === '*' || PrevKey === '-' || PrevKey === '+' || PrevKey === '%')  {
           return;
       }
     }
@@ -53,6 +53,7 @@ export class CalculatorComponent implements OnInit {
     if (this.input.toString().lastIndexOf("-") > pos) pos=this.input.lastIndexOf("-")
     if (this.input.toString().lastIndexOf("*") > pos) pos=this.input.lastIndexOf("*")
     if (this.input.toString().lastIndexOf("/") > pos) pos=this.input.lastIndexOf("/")
+    if (this.input.toString().lastIndexOf("%") > pos) pos=this.input.lastIndexOf("%")
     console.log('Last '+this.input.substr(pos+1))
     return this.input.substr(pos+1)
   }
@@ -62,7 +63,7 @@ export class CalculatorComponent implements OnInit {
  
     //Do not allow operators more than once
     const lastKey = this.input[this.input.length - 1];
-    if (lastKey === '/' || lastKey === '*' || lastKey === '-' || lastKey === '+')  {
+    if (lastKey === '/' || lastKey === '*' || lastKey === '-' || lastKey === '+' || lastKey === '%')  {
       return;
     }
    
@@ -93,7 +94,7 @@ export class CalculatorComponent implements OnInit {
  
     lastKey = formula[formula.length - 1];
  
-    if (lastKey === '/' || lastKey === '*' || lastKey === '-' || lastKey === '+' || lastKey === '.')  {
+    if (lastKey === '/' || lastKey === '*' || lastKey === '-' || lastKey === '+' || lastKey === '.' || lastKey === '%')  {
       formula=formula.substr(0,formula.length - 1);
     }
  
